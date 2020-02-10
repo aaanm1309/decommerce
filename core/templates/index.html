@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    {{ title|capfirst }}
+{% endblock %}
+
+{% block container %}
+		<div class="jumbotron page-header">
+		  <h1>{{ title|capfirst }}</h1>
+		  <p>
+              {% for item in textos %}
+                  {{ item }}
+                  {% if not forloop.last %}
+                       ,
+                  {% endif %}
+              {% endfor %}
+          </p>
+
+		  <p><a class="btn btn-primary">Saiba mais</a></p>
+		</div>
+{% endblock %}
