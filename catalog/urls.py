@@ -15,15 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core import views
-from catalog import views as views_catalog
-from django.conf.urls import url, include
-
+from . import views
+from django.conf.urls import url
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('contato/', views.contact, name='contact'),
-    url(r'^catalogo/', include(('catalog.urls', 'catalog'), namespace='catalog')),
-    path('privacidade/', views.privacidade, name='privacidade'),
-    path('admin/', admin.site.urls),
+    url(r'^$', views.product_list, name='product_list'),
+    url(r'^(?P<slug>[\w_-]+)/$', views.category, name='category'),
+    url(r'^produtos/(?P<slug>[\w_-]+)/$', views.product, name='product'),
 ]
