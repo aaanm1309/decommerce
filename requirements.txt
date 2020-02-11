@@ -1,0 +1,9 @@
+django
+gunicorn
+django-heroku
+dj-database-url
+asgiref==3.2.3
+model-mommy==2.0.0
+pytz==2019.3
+sqlparse==0.3.0
+whitenoise==5.0.1
